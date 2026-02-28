@@ -9,7 +9,9 @@ services:
     startCommand: npm start
     envVars:
       - key: NODE_OPTIONS
-        value: "--max_old_space_size=400"
+        value: "--max_old_space_size=350"
+      - key: NEXT_TELEMETRY_DISABLED
+        value: "1"
       - key: NEXT_PUBLIC_API_URL
         sync: false
       - key: NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY
