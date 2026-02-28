@@ -8,6 +8,8 @@ services:
     buildCommand: npm install && npm run build
     startCommand: npm start
     envVars:
+      - key: NODE_OPTIONS
+        value: "--max_old_space_size=400"
       - key: NEXT_PUBLIC_API_URL
         sync: false
       - key: NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY
