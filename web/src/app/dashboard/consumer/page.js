@@ -19,10 +19,6 @@ export default function ConsumerDashboard() {
 
     useEffect(() => {
         if (isLoaded && user) {
-            if (user.publicMetadata?.role !== 'consumer') {
-                router.push('/dashboard');
-                return;
-            }
             fetchConsumerData();
         }
     }, [isLoaded, user, router]);

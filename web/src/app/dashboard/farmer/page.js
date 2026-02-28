@@ -282,31 +282,14 @@ export default function FarmerDashboard() {
                                     </a>
                                 </p>
                                 <div style={{ background: "white", padding: "1rem", display: "inline-block", borderRadius: "8px", marginBottom: "1rem" }}>
-                                    <QRCodeCanvas id="qr-canvas" value={`http://localhost:3000/trace/${mintedBatchId}`} size={150} />
-                                </div>
-                                <div>
-                                    <button
-                                        type="button"
-                                        className="btn-outline"
-                                        onClick={() => {
-                                            const canvas = document.getElementById("qr-canvas");
-                                            if (canvas) {
-                                                const pngUrl = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
-                                                let downloadLink = document.createElement("a");
-                                                downloadLink.href = pngUrl;
-                                                downloadLink.download = `${mintedBatchId}.png`;
-                                                document.body.appendChild(downloadLink);
-                                                downloadLink.click();
-                                                document.body.removeChild(downloadLink);
-                                            }
-                                        }}
-                                        style={{ fontSize: "0.9rem", padding: "0.5rem 1rem", borderColor: "#3b82f6", color: "#60a5fa", display: "flex", alignItems: "center", justifyContent: "center", gap: "0.5rem" }}
-                                    >
-                                        <Download size={18} /> Download QR Image
-                                    </button>
+                                    <img
+                                        src={`https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://localhost:3000/trace/${mintedBatchId}`}
+                                        alt="Batch QR Code"
+                                        style={{ width: 150, height: 150 }}
+                                    />
                                 </div>
                                 <p style={{ marginTop: "1rem", color: "#cbd5e1", fontSize: "0.85rem" }}>
-                                    Download and print this QR code to attach it to the batch sack for physical traceability.
+                                    Take a screenshot of this QR code to attach it to the batch sack for physical traceability.
                                 </p>
                             </div>
                         )}

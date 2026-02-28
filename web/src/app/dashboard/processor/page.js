@@ -23,10 +23,7 @@ export default function ProcessorDashboard() {
 
     useEffect(() => {
         if (isLoaded && user) {
-            if (user.publicMetadata?.role !== 'processor') {
-                router.push('/dashboard');
-                return;
-            }
+            // Reverted: Allow admin and other roles to view
         }
     }, [isLoaded, user, router]);
 
