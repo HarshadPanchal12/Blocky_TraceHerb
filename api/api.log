@@ -11,3 +11,34 @@ INFO:     127.0.0.1:44946 - "GET /payments/has_purchased/user_3AGvuASoj8xTV21kqn
 INFO:     127.0.0.1:44964 - "GET /payments/has_purchased/user_3AGvuASoj8xTV21kqn5hw8RRyBL/BATCH-052152-ER_3 HTTP/1.1" 200 OK
 INFO:     127.0.0.1:44958 - "GET /batches/BATCH-052152-ER_3 HTTP/1.1" 200 OK
 INFO:     127.0.0.1:44958 - "GET /batches/BATCH-052152-ER_3 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59016 - "GET /users/user_3AGvuASoj8xTV21kqn5hw8RRyBL/purchases HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59026 - "GET /users/user_3AGvuASoj8xTV21kqn5hw8RRyBL/scans HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59026 - "GET /users/user_3AGvuASoj8xTV21kqn5hw8RRyBL/purchases HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59016 - "GET /users/user_3AGvuASoj8xTV21kqn5hw8RRyBL/scans HTTP/1.1" 200 OK
+INFO:     127.0.0.1:41340 - "OPTIONS /users/scans/record HTTP/1.1" 200 OK
+INFO:     127.0.0.1:41348 - "POST /users/scans/record HTTP/1.1" 200 OK
+INFO:     127.0.0.1:41348 - "GET /payments/has_purchased/user_3AGvuASoj8xTV21kqn5hw8RRyBL/BATCH-052152-ER_3 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:41340 - "GET /payments/has_purchased/user_3AGvuASoj8xTV21kqn5hw8RRyBL/BATCH-052152-ER_3 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:41348 - "GET /batches/BATCH-052152-ER_3 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:41348 - "GET /batches/BATCH-052152-ER_3 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53780 - "GET /users/user_3AGvuASoj8xTV21kqn5hw8RRyBL/scans HTTP/1.1" 200 OK
+INFO:     127.0.0.1:41348 - "GET /users/user_3AGvuASoj8xTV21kqn5hw8RRyBL/purchases HTTP/1.1" 200 OK
+INFO:     127.0.0.1:41348 - "GET /users/user_3AGvuASoj8xTV21kqn5hw8RRyBL/scans HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53780 - "GET /users/user_3AGvuASoj8xTV21kqn5hw8RRyBL/purchases HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39674 - "GET /users/user_3AGvuASoj8xTV21kqn5hw8RRyBL/purchases HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39678 - "GET /users/user_3AGvuASoj8xTV21kqn5hw8RRyBL/scans HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43526 - "GET /admin/verification_requests HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43526 - "GET /users/user_3AGvuASoj8xTV21kqn5hw8RRyBL/purchases HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43542 - "GET /users/user_3AGvuASoj8xTV21kqn5hw8RRyBL/scans HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45882 - "GET /admin/verification_requests HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56654 - "POST /auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56624 - "GET /admin/verification_requests HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59374 - "GET /auth/verification_status/user_3AGvuASoj8xTV21kqn5hw8RRyBL HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44286 - "GET /admin/verification_requests HTTP/1.1" 200 OK
+INFO:     127.0.0.1:47118 - "GET /users/user_3AGvuASoj8xTV21kqn5hw8RRyBL/scans HTTP/1.1" 200 OK
+INFO:     127.0.0.1:47108 - "GET /users/user_3AGvuASoj8xTV21kqn5hw8RRyBL/purchases HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [8131]
+INFO:     Stopping reloader process [8109]
