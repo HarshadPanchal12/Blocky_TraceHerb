@@ -1,4 +1,18 @@
+"use client";
+
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+
 export default function DashboardLayout({ children }) {
+    const pathname = usePathname();
+
+    const links = [
+        { href: "/dashboard/farmer", label: "Farmer View" },
+        { href: "/dashboard/processor", label: "Processor View" },
+        { href: "/dashboard/admin", label: "Admin View" },
+        { href: "/dashboard/consumer", label: "Consumer View" },
+    ];
+
     return (
         <div style={{ display: "flex", minHeight: "100vh" }}>
             {/* Basic Sidebar */}
@@ -7,11 +21,23 @@ export default function DashboardLayout({ children }) {
                     🌿 Blocky Dashboard
                 </div>
                 <nav style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
-                    <a href="/" style={{ color: "var(--text-muted)", textDecoration: "none" }}>← Back to Home</a>
-                    <a href="/dashboard/farmer" style={{ color: "#4ade80", textDecoration: "none", fontWeight: "bold" }}>Farmer View</a>
-                    <a href="/dashboard/processor" style={{ color: "var(--text-muted)", textDecoration: "none" }}>Processor View</a>
-                    <a href="/dashboard/admin" style={{ color: "var(--text-muted)", textDecoration: "none" }}>Admin View</a>
-                    <a href="/dashboard/consumer" style={{ color: "var(--text-muted)", textDecoration: "none" }}>Consumer View</a>
+                    <Link href="/" style={{ color: "var(--text-muted)", textDecoration: "none" }}>← Back to Home</Link>
+                    {links.map((link) => {
+                        const isActive = pathname === link.href;
+                        return (
+                            <Link
+                                key={link.href}
+                                href={link.href}
+                                style={{
+                                    color: isActive ? "#4ade80" : "var(--text-muted)",
+                                    textDecoration: "none",
+                                    fontWeight: isActive ? "bold" : "normal"
+                                }}
+                            >
+                                {link.label}
+                            </Link>
+                        );
+                    })}
                 </nav>
             </aside>
 
