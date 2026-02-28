@@ -9,6 +9,8 @@ import { Camera, X, Upload, ScanLine, FileEdit, CheckCircle2, Lock, Building2 } 
 export default function ProcessorDashboard() {
     const { user, isLoaded } = useUser();
 
+    const router = useRouter();
+
     const [batchId, setBatchId] = useState("");
     const [stepDescription, setStepDescription] = useState("");
     const [location, setLocation] = useState("");
@@ -18,6 +20,15 @@ export default function ProcessorDashboard() {
     const [error, setError] = useState(null);
 
     const fileInputRef = useRef(null);
+
+    useEffect(() => {
+        if (isLoaded && user) {
+            if (user.publicMetadata?.role !== 'processor') {
+                router.push('/dashboard');
+                return;
+            }
+        }
+    }, [isLoaded, user, router]);
 
     useEffect(() => {
         if (isScanning) {

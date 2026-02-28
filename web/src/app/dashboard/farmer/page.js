@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import { Html5QrcodeScanner, Html5Qrcode } from "html5-qrcode";
 import { useRouter } from "next/navigation";
 import { Trees, Mic, MicOff, BrainCircuit, ScanText, Globe, Key, Leaf, QrCode, ClipboardCopy, Lock, Hash, Download } from "lucide-react";
+import { QRCodeCanvas } from "qrcode.react";
 import { useUser } from "@clerk/nextjs";
 
 export default function FarmerDashboard() {
