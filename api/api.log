@@ -1,0 +1,13 @@
+nohup: ignoring input
+INFO:     Will watch for changes in these directories: ['/media/harshad/New Volume/BlockyTraceHerb-main/api']
+INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process [8109] using StatReload
+INFO:     Started server process [8131]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:48112 - "GET /users/user_3AGvuASoj8xTV21kqn5hw8RRyBL/purchases HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48124 - "GET /users/user_3AGvuASoj8xTV21kqn5hw8RRyBL/scans HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44946 - "GET /payments/has_purchased/user_3AGvuASoj8xTV21kqn5hw8RRyBL/BATCH-052152-ER_3 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44964 - "GET /payments/has_purchased/user_3AGvuASoj8xTV21kqn5hw8RRyBL/BATCH-052152-ER_3 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44958 - "GET /batches/BATCH-052152-ER_3 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44958 - "GET /batches/BATCH-052152-ER_3 HTTP/1.1" 200 OK

@@ -426,6 +426,14 @@ def record_purchase(record: PurchaseRecord, db: Session = Depends(get_db)):
     db.commit()
     return {"status": "success"}
 
+@app.get("/payments/has_purchased/{consumer_id}/{batch_id}")
+def check_has_purchased(consumer_id: str, batch_id: str, db: Session = Depends(get_db)):
+    existing = db.query(models.ConsumerPurchase).filter(
+        models.ConsumerPurchase.consumer_id == consumer_id,
+        models.ConsumerPurchase.batch_id == batch_id
+    ).first()
+    return {"purchased": bool(existing)}
+
 @app.get("/batches/{batch_id}", response_model=schemas.BatchMetadataResponse)
 def get_batch_metadata(batch_id: str, db: Session = Depends(get_db)):
     db_batch = db.query(models.BatchMetadata).filter(models.BatchMetadata.batch_id == batch_id).first()
