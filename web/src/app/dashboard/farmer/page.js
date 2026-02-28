@@ -290,8 +290,34 @@ export default function FarmerDashboard() {
                                         style={{ width: 150, height: 150 }}
                                     />
                                 </div>
+                                <div>
+                                    <button
+                                        type="button"
+                                        className="btn-outline"
+                                        onClick={async () => {
+                                            try {
+                                                const response = await fetch(`https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://localhost:3000/trace/${mintedBatchId}`);
+                                                const blob = await response.blob();
+                                                const url = window.URL.createObjectURL(blob);
+                                                const downloadLink = document.createElement("a");
+                                                downloadLink.href = url;
+                                                downloadLink.download = `${mintedBatchId}-QR.png`;
+                                                document.body.appendChild(downloadLink);
+                                                downloadLink.click();
+                                                document.body.removeChild(downloadLink);
+                                                window.URL.revokeObjectURL(url);
+                                            } catch (error) {
+                                                console.error("Failed to download image", error);
+                                                alert("Failed to download QR code. Please take a screenshot.");
+                                            }
+                                        }}
+                                        style={{ fontSize: "0.9rem", padding: "0.5rem 1rem", borderColor: "#3b82f6", color: "#60a5fa", display: "flex", alignItems: "center", justifyContent: "center", gap: "0.5rem" }}
+                                    >
+                                        <Download size={18} /> Download QR Image
+                                    </button>
+                                </div>
                                 <p style={{ marginTop: "1rem", color: "#cbd5e1", fontSize: "0.85rem" }}>
-                                    Take a screenshot of this QR code to attach it to the batch sack for physical traceability.
+                                    Attach this exact QR code to the batch sack for physical traceability.
                                 </p>
                             </div>
                         )}
