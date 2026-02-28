@@ -21,7 +21,8 @@ export default function FarmerDashboard() {
         gps_location: ""
     });
     const [registrationSuccess, setRegistrationSuccess] = useState(false);
-    const [registeredBatchId, setRegisteredBatchId] = useState("");
+    const [mintedBatchId, setMintedBatchId] = useState("");
+    const [txHash, setTxHash] = useState("");
     const recognitionRef = useRef(null);
 
     // Verification Request State
@@ -146,7 +147,8 @@ export default function FarmerDashboard() {
             if (response.ok) {
                 const data = await response.json();
                 console.log("✅ Registered via Gasless Relayer:", data);
-                setRegisteredBatchId(data.batch_id);
+                setMintedBatchId(data.batch_id);
+                setTxHash(data.tx_hash || "0xMockTransactionHashForInternalUseOnly");
                 setRegistrationSuccess(true);
                 // Phase 4: Show a mock transaction hash or success state
                 alert("Batch successfully secured on the blockchain (Gas paid by Blocky Admin).");
