@@ -273,16 +273,16 @@ export default function FarmerDashboard() {
                                 <h3 style={{ marginBottom: "1rem", color: "#60a5fa", display: "flex", alignItems: "center", gap: "0.5rem" }}>
                                     <QrCode size={20} /> Success: Batch Minted on Polygon
                                 </h3>
-                                <p style={{ margin: 0, fontSize: "0.85rem", color: "#cbd5e1", display: "flex", alignItems: "center", gap: "0.5rem", justifyContent: "center" }}>
+                                <div style={{ margin: 0, fontSize: "0.85rem", color: "#cbd5e1", display: "flex", alignItems: "center", gap: "0.5rem", justifyContent: "center" }}>
                                     <Key size={14} color="#fcd34d" />
                                     Batch ID: <span style={{ color: "#f8fafc", fontFamily: "monospace" }}>{mintedBatchId}</span>
-                                </p>
-                                <p style={{ margin: "0.5rem 0 1rem", fontSize: "0.85rem", color: "#cbd5e1", display: "flex", alignItems: "center", gap: "0.5rem", justifyContent: "center" }}>
+                                </div>
+                                <div style={{ margin: "0.5rem 0 1rem", fontSize: "0.85rem", color: "#cbd5e1", display: "flex", alignItems: "center", gap: "0.5rem", justifyContent: "center" }}>
                                     <Hash size={14} color="#fcd34d" />
                                     Transaction Hash: <a href={`https://amoy.polygonscan.com/tx/${txHash}`} target="_blank" rel="noreferrer" style={{ color: "#60a5fa", textDecoration: "none", display: "flex", alignItems: "center", gap: "0.5rem" }}>
-                                        <Globe size={14} /> {txHash.slice(0, 6)}...{txHash.slice(-4)}
+                                        <Globe size={14} /> {txHash ? `${txHash.slice(0, 6)}...${txHash.slice(-4)}` : "Pending"}
                                     </a>
-                                </p>
+                                </div>
                                 <div style={{ background: "white", padding: "1rem", display: "inline-block", borderRadius: "8px", marginBottom: "1rem" }}>
                                     <img
                                         src={`https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://localhost:3000/trace/${mintedBatchId}`}
