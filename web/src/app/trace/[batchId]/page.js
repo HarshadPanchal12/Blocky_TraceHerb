@@ -259,22 +259,26 @@ export default function TraceabilityPortal() {
                                         <span style={{ color: "#60a5fa" }}>{metadata.batch_id}</span>
                                     </div>
                                     <div style={{ display: "grid", gridTemplateColumns: "120px 1fr" }}>
-                                        <span style={{ color: "#94a3b8", fontWeight: "bold" }}>Farmer Name:</span>
-                                        <span>{metadata.owner?.name ? metadata.owner.name : "Verified Farmer"}</span>
+                                        <span style={{ color: "#94a3b8", fontWeight: "bold" }}>Herb Name:</span>
+                                        <span style={{ color: "#fcd34d", fontWeight: "bold", textTransform: "capitalize" }}>{metadata.herb_name || "Unknown"}</span>
                                     </div>
                                     <div style={{ display: "grid", gridTemplateColumns: "120px 1fr" }}>
-                                        <span style={{ color: "#94a3b8", fontWeight: "bold" }}>Phone/Email:</span>
-                                        <span>{metadata.owner?.phone_number ? metadata.owner.phone_number : "Contact Hidden"}</span>
+                                        <span style={{ color: "#94a3b8", fontWeight: "bold" }}>Quantity:</span>
+                                        <span>{metadata.quantity ? `${metadata.quantity} KG / Units` : "Unknown"}</span>
                                     </div>
                                     <div style={{ display: "grid", gridTemplateColumns: "120px 1fr" }}>
-                                        <span style={{ color: "#94a3b8", fontWeight: "bold" }}>Wallet:</span>
+                                        <span style={{ color: "#94a3b8", fontWeight: "bold" }}>Farmer Email:</span>
+                                        <span>{metadata.owner?.phone_number || "Contact Hidden"}</span>
+                                    </div>
+                                    <div style={{ display: "grid", gridTemplateColumns: "120px 1fr" }}>
+                                        <span style={{ color: "#94a3b8", fontWeight: "bold" }}>Wallet Address:</span>
                                         <span style={{ fontSize: "0.80rem", color: "#ec4899", fontFamily: "monospace", overflowWrap: "break-word", wordBreak: "break-all" }}>
                                             {metadata.owner?.wallet_address || "0x..."}
                                         </span>
                                     </div>
-                                    <div style={{ display: "grid", gridTemplateColumns: "120px 1fr" }}>
-                                        <span style={{ color: "#94a3b8", fontWeight: "bold" }}>Notes:</span>
-                                        <span>{metadata.detailed_notes || "N/A"}</span>
+                                    <div style={{ display: "grid", gridTemplateColumns: "120px 1fr", marginTop: "0.5rem", paddingTop: "0.5rem", borderTop: "1px solid rgba(255,255,255,0.05)" }}>
+                                        <span style={{ color: "#94a3b8", fontWeight: "bold" }}>Registered At:</span>
+                                        <span>{metadata.timestamp ? new Date(metadata.timestamp * 1000).toLocaleString() : "Unknown"}</span>
                                     </div>
                                 </div>
                             </div>

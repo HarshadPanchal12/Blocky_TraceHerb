@@ -441,8 +441,22 @@ def get_batch_metadata(batch_id: str, db: Session = Depends(get_db)):
         raise HTTPException(status_code=404, detail="Batch metadata not found")
 
     processing_history = []
-    # If contract is connected, fetch processing history
+    herb_name = None
+    quantity = None
+    timestamp = None
+
+    # If contract is connected, fetch extra details
     if contract:
+        try:
+            # ABI: batchId, farmer, farmerName(cropName), herbName, herbType(farmer-name), lat, lng, timestamp, quantity, qualityGrade, isVerified, additionalNotes
+            raw_details = contract.functions.getBatchDetails(batch_id).call()
+            if raw_details:
+                herb_name = raw_details[2] # cropName
+                timestamp = raw_details[7] # collectionTimestamp
+                quantity = raw_details[8]  # quantity
+        except Exception as e:
+            print(f"Error fetching batch details: {e}")
+
         try:
             raw_history = contract.functions.getProcessingHistory(batch_id).call()
             # raw_history is a list of tuples: (processor_address, processorName, stepDescription, timestamp, location)
@@ -457,9 +471,23 @@ def get_batch_metadata(batch_id: str, db: Session = Depends(get_db)):
         except Exception as e:
             print(f"Error fetching processing history: {e}")
 
-    # Convert SQLAlchemy model to dict so we can inject processing_history
+    # Convert SQLAlchemy model to dict so we can inject processing_history and details
     batch_dict = {column.name: getattr(db_batch, column.name) for column in db_batch.__table__.columns}
     batch_dict["processing_history"] = processing_history
+    batch_dict["herb_name"] = herb_name
+    batch_dict["quantity"] = quantity
+    batch_dict["timestamp"] = timestamp
+
+    # Manually serialize relationship so frontend gets Farmer Name and Email
+    if db_batch.owner:
+        batch_dict["owner"] = {
+            "id": db_batch.owner.id,
+            "wallet_address": db_batch.owner.wallet_address,
+            "name": db_batch.owner.name,
+            "phone_number": db_batch.owner.phone_number,
+            "role": db_batch.owner.role,
+            "is_verified": db_batch.owner.is_verified
+        }
     
     return batch_dict
 

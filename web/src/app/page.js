@@ -1,3 +1,5 @@
+"use client";
+
 import CanvasBackground from "@/components/CanvasBackground";
 import { SignInButton, SignedIn, SignedOut, UserButton } from '@clerk/nextjs';
 import { Leaf, Wheat, Factory, ShieldCheck, Smartphone } from "lucide-react";

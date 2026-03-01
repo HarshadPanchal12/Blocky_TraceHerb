@@ -140,7 +140,8 @@ export default function FarmerDashboard() {
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
                     batch_id: "BATCH-" + Date.now().toString().slice(-6) + "-" + walletAddress.slice(2, 6).toUpperCase(),
-                    gps_location: formData.gps_location || "Not Provided"
+                    gps_location: formData.gps_location || "Not Provided",
+                    detailed_notes: `Crop: ${formData.crop_name} | Quantity: ${formData.quantity}`
                 })
             });
 

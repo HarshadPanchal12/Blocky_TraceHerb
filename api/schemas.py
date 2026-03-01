@@ -38,7 +38,11 @@ class BatchMetadataCreate(BatchMetadataBase):
 class BatchMetadataResponse(BatchMetadataBase):
     id: int
     owner_id: int
+    owner: Optional[UserProfileResponse] = None
     processing_history: Optional[List[dict]] = None
+    herb_name: Optional[str] = None
+    quantity: Optional[int] = None
+    timestamp: Optional[int] = None
 
     class Config:
         from_attributes = True

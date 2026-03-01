@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import { useUser, SignOutButton } from "@clerk/nextjs";
 import { Html5QrcodeScanner, Html5Qrcode } from "html5-qrcode";
 import { useRouter } from "next/navigation";
-import { Camera, X, Upload, ScanLine, FileEdit, CheckCircle2, Lock, Building2 } from "lucide-react";
+import { Camera, X, Upload, ScanLine, FileEdit, CheckCircle, Lock, Building2 } from "lucide-react";
 
 export default function ProcessorDashboard() {
     const { user, isLoaded } = useUser();
@@ -217,7 +217,7 @@ export default function ProcessorDashboard() {
 
                             {message && (
                                 <div style={{ background: "rgba(74, 222, 128, 0.1)", border: "1px solid rgba(74, 222, 128, 0.2)", color: "#4ade80", padding: "1rem", borderRadius: "8px", marginBottom: "1.5rem", fontSize: "0.9rem", wordBreak: "break-all", display: "flex", gap: "0.5rem" }}>
-                                    <CheckCircle2 size={18} /> {message}
+                                    <CheckCircle size={18} /> {message}
                                 </div>
                             )}
 
